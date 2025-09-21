@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Of course. Here is a complete `README.md` file for the application.
 
 -----
@@ -118,3 +119,6 @@ The project is organized into modules for better maintainability:
 ## License
 
 This project is licensed under the MIT License. See the `LICENSE` file for details.
+=======
+# numerical-calculus
+>>>>>>> 3bdb40ecb595013cffb53f8b3bfc86f41ac5310b
