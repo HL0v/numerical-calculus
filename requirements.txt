@@ -1,0 +1,6 @@
+customtkinter
+numpy
+matplotlib
+sympy
+scipy
+python3-tk
