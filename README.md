@@ -99,22 +99,22 @@ python main.py
 ```
 -----
 ## Structure
-/CalculusTool/
-|
-├── main.py                     # Main entry point
-├── app.py                      # Main App class & navigation logic
-├── requirements.txt            # Project dependencies
-|
-├── gui/                        # GUI modules for each section
-│   ├── error_frame.py          # Floating point & Truncation
-│   ├── zeros_frames.py         # Bisection & Newton-Raphson
-│   ├── linear_systems_frame.py # Gaussian Elimination
-│   ├── interpolation_frame.py  # Lagrange Interpolation
-│   ├── least_squares_frame.py  # Curve Fitting (MMQ)
-│   └── integration_frame.py    # Numerical Integration
-|
-└── utils/                      # Helper modules
-    └── ieee754_converter.py    # Binary representation logic
+/CalculusTool/  
+|  
+├── main.py                     # Main entry point  
+├── app.py                      # Main App class & navigation logic  
+├── requirements.txt            # Project dependencies  
+|  
+├── gui/                        # GUI modules for each section  
+│   ├── error_frame.py          # Floating point & Truncation  
+│   ├── zeros_frames.py         # Bisection & Newton-Raphson  
+│   ├── linear_systems_frame.py # Gaussian Elimination  
+│   ├── interpolation_frame.py  # Lagrange Interpolation  
+│   ├── least_squares_frame.py  # Curve Fitting (MMQ)  
+│   └── integration_frame.py    # Numerical Integration  
+|  
+└── utils/                      # Helper modules  
+    └── ieee754_converter.py    # Binary representation logic  
 
   ## License
   
