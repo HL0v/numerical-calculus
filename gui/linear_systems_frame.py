@@ -11,14 +11,10 @@ class LinearSystemsFrame(ctk.CTkFrame):
         self.tab_view = ctk.CTkTabview(self, anchor="w")
         self.tab_view.grid(row=0, column=0, padx=10, pady=10, sticky="nsew")
         self.tab_view.add("Eliminação de Gauss")
-        #self.tab_view.add("Sistemas Mal Condicionados")#placeholder
-        #self.tab_view.add("Gauss-Seidel")#placeholder
 
         self.matrix_entries = []
         
         self._create_gauss_tab(self.tab_view.tab("Eliminação de Gauss"))
-        #self._create_ill_conditioned_tab(self.tab_view.tab("Sistemas Mal Condicionados"))
-        #self._create_gauss_seidel_tab(self.tab_view.tab("Gauss-Seidel"))
 
     def _create_matrix_grid(self, parent, size, grid_row, grid_col, has_b=True, has_x0=False):
         """Dynamically creates a grid of CTkEntry widgets for a matrix."""
@@ -155,23 +151,3 @@ class LinearSystemsFrame(ctk.CTkFrame):
         
         self.gauss_results_box.delete("1.0", "end")
         self.gauss_results_box.insert("1.0", steps)
-
-    # --- ILL-CONDITIONED TAB ---
-    def _create_ill_conditioned_tab(self, tab):
-        # Implementation similar to Gauss tab, omitted for brevity but logic would be:
-        # 1. Button to load Hilbert matrix into a grid.
-        # 2. Button to solve system `Ax=b` using `np.linalg.solve(A, b)`.
-        # 3. Display `np.linalg.cond(A)` and solution `x`.
-        # 4. Allow user to edit `b`, re-solve, and see the large change in `x`.
-        ctk.CTkLabel(tab, text="Funcionalidade a ser implementada.").pack(pady=20)
-
-
-    # --- GAUSS-SEIDEL TAB ---
-    def _create_gauss_seidel_tab(self, tab):
-        # Implementation similar to Gauss tab, omitted for brevity but logic would be:
-        # 1. Grid for A, b, and initial guess x0.
-        # 2. Entry for tolerance.
-        # 3. Button to solve.
-        # 4. Logic to check for diagonal dominance.
-        # 5. Iterative Gauss-Seidel algorithm, printing each step to a textbox.
-        ctk.CTkLabel(tab, text="Funcionalidade a ser implementada.").pack(pady=20)

@@ -4,15 +4,16 @@ import customtkinter as ctk
 from gui.error_frame import ErrorFrame
 from gui.linear_systems_frame import LinearSystemsFrame
 from gui.zeros_frames import ZerosFrame
-# The following would be included once their files are created
-# from gui.zeros_frame import ZerosFrame
-# from gui.linear_systems_frame import LinearSystemsFrame
+# Importando os novos módulos
+from gui.interpolation_frame import InterpolationFrame
+from gui.least_squares_frame import LeastSquaresFrame
+from gui.integration_frame import IntegrationFrame
 
 class App(ctk.CTk):
     def __init__(self):
         super().__init__()
 
-        self.title("trabalho de calculo numérico")
+        self.title("Trabalho de Cálculo Numérico")
         self.geometry("1200x800")
 
         # --- THEME AND STYLING ---
@@ -26,7 +27,7 @@ class App(ctk.CTk):
         # --- SIDEBAR ---
         self.sidebar_frame = ctk.CTkFrame(self, width=180, corner_radius=0)
         self.sidebar_frame.grid(row=0, column=0, sticky="nsw")
-        self.sidebar_frame.grid_rowconfigure(4, weight=1)
+        self.sidebar_frame.grid_rowconfigure(7, weight=1) # Empurrar o spacer para baixo se necessário
 
         self.logo_label = ctk.CTkLabel(self.sidebar_frame, text="Módulos", font=ctk.CTkFont(size=20, weight="bold"))
         self.logo_label.grid(row=0, column=0, padx=20, pady=(20, 10))
@@ -36,7 +37,10 @@ class App(ctk.CTk):
         button_info = {
             "errors": "Noções de Erro 🎓",
             "zeros": "Zeros de Funções 🎯",
-            "linear": "Sistemas Lineares 🔢"
+            "linear": "Sistemas Lineares 🔢",
+            "interp": "Interpolação 📈",
+            "least_sq": "Mínimos Quadrados 📉",
+            "integration": "Integração Numérica ∫"
         }
         
         for i, (name, text) in enumerate(button_info.items()):
@@ -50,9 +54,14 @@ class App(ctk.CTk):
         self.frames["errors"] = ErrorFrame(self)
         self.frames["zeros"] = ZerosFrame(self)
         self.frames["linear"] = LinearSystemsFrame(self)
+        self.frames["interp"] = InterpolationFrame(self)
+        self.frames["least_sq"] = LeastSquaresFrame(self)
+        self.frames["integration"] = IntegrationFrame(self)
 
         # --- SET INITIAL FRAME ---
         self.select_frame_by_name("errors")
+        
+        self.protocol("WM_DELETE_WINDOW", self.on_closing)
 
     def select_frame_by_name(self, name):
         # Reset button styles
@@ -71,11 +80,9 @@ class App(ctk.CTk):
         selected_frame = self.frames[name]
         selected_frame.grid(row=0, column=1, sticky="nsew", padx=10, pady=10)
 
-        # Add this near the end of __init__
-        self.protocol("WM_DELETE_WINDOW", self.on_closing)
-
-    # Add this new method
     def on_closing(self):
         self.quit()
 
-
+if __name__ == "__main__":
+    app = App()
+    app.mainloop()
